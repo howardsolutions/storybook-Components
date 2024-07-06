@@ -16,6 +16,9 @@ const meta = {
     variant: {
       control: 'select',
     },
+    size: {
+      control: 'select',
+    },
   },
 } satisfies Meta;
 
@@ -28,6 +31,7 @@ export const Primary: Story = {
     children: 'Button',
     variant: 'primary',
     disabled: true,
+    size: 'large',
   },
 };
 
@@ -36,6 +40,7 @@ export const Secondary: Story = {
     children: 'Button',
     variant: 'secondary',
     disabled: false,
+    size: 'medium',
   },
 };
 
@@ -43,5 +48,6 @@ export const Destructive: Story = {
   args: {
     children: 'Button',
     variant: 'destructive',
+    size: 'small',
   },
 };
