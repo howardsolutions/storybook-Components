@@ -5,8 +5,12 @@ import { Button } from './button';
 const meta = {
   title: 'Button',
   component: Button,
+  // Set the Default Arguments for each Button Story here!
   args: {
-    children: 'My Button',
+    children: 'Button',
+    variant: 'primary',
+    size: 'medium',
+    disabled: false,
   },
   argTypes: {
     disabled: {
@@ -17,7 +21,7 @@ const meta = {
       control: 'select',
     },
     size: {
-      control: 'select',
+      control: 'radio',
     },
   },
 } satisfies Meta;
@@ -28,26 +32,19 @@ type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
   args: {
-    children: 'Button',
     variant: 'primary',
     disabled: true,
-    size: 'large',
   },
 };
 
 export const Secondary: Story = {
   args: {
-    children: 'Button',
     variant: 'secondary',
-    disabled: false,
-    size: 'medium',
   },
 };
 
 export const Destructive: Story = {
   args: {
-    children: 'Button',
     variant: 'destructive',
-    size: 'small',
   },
 };
