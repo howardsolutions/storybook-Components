@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@fontsource-variable/inter": "5.0.18",
+    "@fontsource/open-sans": "^5.0.28",
     "add": "^2.0.6",
     "lucide-react": "0.368.0",
     "react": "18.3.1",
