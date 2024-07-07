@@ -1,11 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
 import { Button } from './button';
 
 const meta = {
-  title: 'Button',
+  title: 'Components/Button',
   component: Button,
-  // Set the Default Arguments for each Button Story here!
   args: {
     children: 'Button',
     variant: 'primary',
@@ -13,27 +11,32 @@ const meta = {
     disabled: false,
   },
   argTypes: {
+    children: {
+      name: 'Label',
+      control: 'select',
+      description: 'Text to display on the button',
+      options: ['Button', 'Click me', 'Submit', 'Cancel'],
+    },
+    size: {
+      control: 'select',
+      options: ['small', 'medium', 'large'],
+    },
     disabled: {
       control: 'boolean',
-      description: 'Disables the button',
     },
     variant: {
       control: 'select',
-    },
-    size: {
-      control: 'radio',
+      options: ['primary', 'secondary', 'destructive'],
     },
   },
 } satisfies Meta;
 
 export default meta;
-
 type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
   args: {
     variant: 'primary',
-    disabled: true,
   },
 };
 
@@ -46,6 +49,18 @@ export const Secondary: Story = {
 export const Destructive: Story = {
   args: {
     variant: 'destructive',
+  },
+};
+
+export const Small: Story = {
+  args: {
+    size: 'small',
+  },
+};
+
+export const Large: Story = {
+  args: {
+    size: 'large',
   },
 };
 
