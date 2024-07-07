@@ -1,7 +1,13 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 
-const variations = ['primary', 'information', 'success', 'danger', 'warning'] as const;
-type Variations = (typeof variations)[number];
+export const variationsOptions = [
+  'primary',
+  'information',
+  'success',
+  'danger',
+  'warning',
+] as const;
+// type Variations = (typeof variations)[number];
 
 const variant = {
   primary: [
