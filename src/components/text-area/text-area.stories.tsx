@@ -57,6 +57,16 @@ export const Disabled: Story = {
   args: {
     disabled: true,
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const textArea = canvas.getByRole('textbox');
+
+    await userEvent.type(textArea, 'hihi');
+
+    expect(textArea).toBeDisabled();
+    expect(textArea).toHaveClass('disabled:bg-slate-50');
+    expect(textArea).toHaveValue('');
+  },
 };
 
 export const WithCount: Story = {
