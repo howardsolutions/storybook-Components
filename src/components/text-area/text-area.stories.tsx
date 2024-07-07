@@ -29,7 +29,7 @@ const meta = {
       description: 'Disables the text area',
       table: {
         defaultValue: {
-          summary: false,
+          // summary: false,
         },
       },
     },
@@ -39,12 +39,38 @@ const meta = {
       description: 'Marks the text area as required',
       table: {
         defaultValue: {
-          summary: false,
+          // summary: false,
         },
       },
     },
   },
-} as Meta<typeof TextArea>;
+} satisfies Meta<typeof TextArea>;
 
 export default meta;
 type Story = StoryObj<typeof TextArea>;
+
+export const Default: Story = {
+  args: {},
+};
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+};
+
+export const WithCount: Story = {
+  args: {
+    maxLength: 140,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const textArea = canvas.getByRole('textbox');
+    const count = canvas.getByTestId('length');
+
+    const inputValue = 'Hello, World!';
+
+    await userEvent.type(textArea, inputValue);
+    expect(count).toHaveTextContent(inputValue.length.toString());
+  },
+};
